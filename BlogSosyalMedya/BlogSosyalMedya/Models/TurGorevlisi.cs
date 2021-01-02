@@ -8,6 +8,14 @@ namespace BlogSosyalMedya.Models
     public class TurGorevlisi
     {
         public int Id { get; set; }
-        public String GorevliAdi { get; set; }
+        public string Adı { get; set; }
+        public string Soyadı { get; set; }
+        public Cinsiyet Cinsiyet { get; set; }
+    }
+    public enum Cinsiyet
+    {
+        Erkek = 1,
+        Kadin = 2
     }
 }
+

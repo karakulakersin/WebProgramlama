@@ -16,16 +16,20 @@
                 @Html.DisplayNameFor(model => model.YerAdı)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SehirId)
+                @Html.DisplayNameFor(model => model.Sehir)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UlkeId)
+                @Html.DisplayNameFor(model => model.Ulke)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KategoriId)
+                @Html.DisplayNameFor(model => model.Kategori)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Puani)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fotograf)
+                
             </th>
             <th></th>
         </tr>
@@ -37,16 +41,20 @@
                 @Html.DisplayFor(modelItem => item.YerAdı)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SehirId)
+                @Html.DisplayFor(modelItem => item.Sehir.SehirAdi)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UlkeId)
+                @Html.DisplayFor(modelItem => item.Ulke.UlkeAd)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.KategoriId)
+                @Html.DisplayFor(modelItem => item.Kategori.KategoriAdı)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Puani)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Fotograf)*@
+                <img src="@Url.Content(item.Fotograf)" class="d-block w-75" asp-append-version="true" />
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

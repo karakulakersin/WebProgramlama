@@ -290,11 +290,6 @@ C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosya
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TatilTuru\Details.cshtml.g.cs
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TatilTuru\Edit.cshtml.g.cs
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TatilTuru\Index.cshtml.g.cs
-C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Create.cshtml.g.cs
-C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Delete.cshtml.g.cs
-C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Details.cshtml.g.cs
-C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Edit.cshtml.g.cs
-C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Index.cshtml.g.cs
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\Ulke\Create.cshtml.g.cs
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\Ulke\Delete.cshtml.g.cs
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\Ulke\Details.cshtml.g.cs
@@ -310,3 +305,13 @@ C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosya
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\Otel\Details.cshtml.g.cs
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\Otel\Edit.cshtml.g.cs
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\Otel\Index.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Create.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Delete.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Details.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Edit.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\TurGorevlisi\Index.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\GidilecekYerler\Create.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\GidilecekYerler\Delete.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\GidilecekYerler\Details.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\GidilecekYerler\Edit.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\GidilecekYerler\Index.cshtml.g.cs

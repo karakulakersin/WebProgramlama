@@ -9,12 +9,10 @@ namespace BlogSosyalMedya.Models
     {
         public int Id { get; set; }
         public int OtelYildizi { get; set; }
-        public String OtelAdi { get; set; }
-        public String SehirAdi { get; set; }
+        public String OtelAdi { get; set; } 
+        public int SehirId{ get; set; }
         public Sehir Sehir { get; set; }
-        public String UlkeAdi { get; set; }
+        public int UlkeId{ get; set; }
         public Ulke Ulke { get; set; }
-
-
     }
 }

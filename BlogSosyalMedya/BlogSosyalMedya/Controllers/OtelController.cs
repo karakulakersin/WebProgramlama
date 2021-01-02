@@ -22,7 +22,8 @@ namespace BlogSosyalMedya.Controllers
         // GET: Otel
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Otel.ToListAsync());
+            var applicationDbContext = _context.Otel.Include(o => o.Sehir).Include(o => o.Ulke);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Otel/Details/5
@@ -34,6 +35,8 @@ namespace BlogSosyalMedya.Controllers
             }
 
             var otel = await _context.Otel
+                .Include(o => o.Sehir)
+                .Include(o => o.Ulke)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (otel == null)
             {
@@ -46,6 +49,8 @@ namespace BlogSosyalMedya.Controllers
         // GET: Otel/Create
         public IActionResult Create()
         {
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id");
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id");
             return View();
         }
 
@@ -54,7 +59,7 @@ namespace BlogSosyalMedya.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,OtelYildizi,OtelAdi,SehirAdi,UlkeAdi")] Otel otel)
+        public async Task<IActionResult> Create([Bind("Id,OtelYildizi,OtelAdi,SehirId,UlkeId")] Otel otel)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +67,8 @@ namespace BlogSosyalMedya.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", otel.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", otel.UlkeId);
             return View(otel);
         }
 
@@ -78,6 +85,8 @@ namespace BlogSosyalMedya.Controllers
             {
                 return NotFound();
             }
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", otel.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", otel.UlkeId);
             return View(otel);
         }
 
@@ -86,7 +95,7 @@ namespace BlogSosyalMedya.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,OtelYildizi,OtelAdi,SehirAdi,UlkeAdi")] Otel otel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,OtelYildizi,OtelAdi,SehirId,UlkeId")] Otel otel)
         {
             if (id != otel.Id)
             {
@@ -113,6 +122,8 @@ namespace BlogSosyalMedya.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", otel.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", otel.UlkeId);
             return View(otel);
         }
 
@@ -125,6 +136,8 @@ namespace BlogSosyalMedya.Controllers
             }
 
             var otel = await _context.Otel
+                .Include(o => o.Sehir)
+                .Include(o => o.Ulke)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (otel == null)
             {

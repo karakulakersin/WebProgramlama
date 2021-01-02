@@ -1,5 +1,7 @@
-﻿using BlogSosyalMedya.Models;
+﻿using BlogSosyalMedya.Data;
+using BlogSosyalMedya.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -7,20 +9,26 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BlogSosyalMedya.Controllers
+namespace FilmDunyasi1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+
+            var db = _context.TatilYerleri
+                .Include(f => f.Sehir)
+                .Include(f => f.Ulke);
+
+
+            return View(db.ToList());
         }
 
         public IActionResult Privacy()

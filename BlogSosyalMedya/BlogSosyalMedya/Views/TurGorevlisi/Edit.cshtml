@@ -14,9 +14,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="GorevliAdi" class="control-label"></label>
-                <input asp-for="GorevliAdi" class="form-control" />
-                <span asp-validation-for="GorevliAdi" class="text-danger"></span>
+                <label asp-for="Adı" class="control-label"></label>
+                <input asp-for="Adı" class="form-control" />
+                <span asp-validation-for="Adı" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soyadı" class="control-label"></label>
+                <input asp-for="Soyadı" class="form-control" />
+                <span asp-validation-for="Soyadı" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Cinsiyet" /> @Html.DisplayNameFor(model => model.Cinsiyet)
+                </label>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

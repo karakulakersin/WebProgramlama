@@ -15,4 +15,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\NewFolder\" />
+    <Folder Include="ViewComponents\" />
+    <Folder Include="wwwroot\YerResimleri\" />
+  </ItemGroup>
+
 </Project>

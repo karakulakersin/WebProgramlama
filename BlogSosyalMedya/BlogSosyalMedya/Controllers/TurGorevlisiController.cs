@@ -54,7 +54,7 @@ namespace BlogSosyalMedya.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,GorevliAdi")] TurGorevlisi turGorevlisi)
+        public async Task<IActionResult> Create([Bind("Id,Adı,Soyadı,Cinsiyet")] TurGorevlisi turGorevlisi)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace BlogSosyalMedya.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,GorevliAdi")] TurGorevlisi turGorevlisi)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Adı,Soyadı,Cinsiyet")] TurGorevlisi turGorevlisi)
         {
             if (id != turGorevlisi.Id)
             {

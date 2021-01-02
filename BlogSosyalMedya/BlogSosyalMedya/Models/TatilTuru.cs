@@ -8,7 +8,7 @@ namespace BlogSosyalMedya.Models
     public class TatilTuru
     {
         public int Id { get; set; }
-        public int TurAdi { get; set; }
+        public String TurAdi { get; set; }
         public int Ucret { get; set; }
 
     }

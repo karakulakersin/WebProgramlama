@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="YerAdı" class="control-label"></label>
@@ -19,23 +19,26 @@
             </div>
             <div class="form-group">
                 <label asp-for="SehirId" class="control-label"></label>
-                <input asp-for="SehirId" class="form-control" />
-                <span asp-validation-for="SehirId" class="text-danger"></span>
+                <select asp-for="SehirId" class ="form-control" asp-items="ViewBag.SehirId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="UlkeId" class="control-label"></label>
-                <input asp-for="UlkeId" class="form-control" />
-                <span asp-validation-for="UlkeId" class="text-danger"></span>
+                <select asp-for="UlkeId" class ="form-control" asp-items="ViewBag.UlkeId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="KategoriId" class="control-label"></label>
-                <input asp-for="KategoriId" class="form-control" />
-                <span asp-validation-for="KategoriId" class="text-danger"></span>
+                <select asp-for="KategoriId" class ="form-control" asp-items="ViewBag.KategoriId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Puani" class="control-label"></label>
                 <input asp-for="Puani" class="form-control" />
                 <span asp-validation-for="Puani" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fotograf" class="control-label"></label>
+               @*<input asp-for="Fotograf" class="form-control" />*@
+                <input type="file" class="form-control" name="YerResimleri"/>
+                <span asp-validation-for="Fotograf" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
