@@ -7,20 +7,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BlogSosyalMedya.Data;
 using BlogSosyalMedya.Models;
-using Microsoft.AspNetCore.Hosting;
-using System.IO;
 
 namespace BlogSosyalMedya.Controllers
 {
     public class TatilYerleriController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public TatilYerleriController(ApplicationDbContext context, IWebHostEnvironment hostingEnvironment)
+        public TatilYerleriController(ApplicationDbContext context)
         {
             _context = context;
-            _hostingEnvironment = hostingEnvironment;
         }
 
         // GET: TatilYerleri
@@ -54,9 +50,9 @@ namespace BlogSosyalMedya.Controllers
         // GET: TatilYerleri/Create
         public IActionResult Create()
         {
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı");
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi");
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd");
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id");
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id");
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id");
             return View();
         }
 
@@ -65,33 +61,17 @@ namespace BlogSosyalMedya.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,YerAdı,SehirId,UlkeId,KategoriId,Puani")] TatilYerleri tatilYerleri)
+        public async Task<IActionResult> Create([Bind("Id,YerAdı,SehirId,UlkeId,KategoriId,Puani,Fotograf,GidilmeDurumu")] TatilYerleri tatilYerleri)
         {
             if (ModelState.IsValid)
             {
-                //******
-                string webRootPath = _hostingEnvironment.WebRootPath;
-                var files = HttpContext.Request.Form.Files;
-
-
-                string fileName = Guid.NewGuid().ToString();
-                var uploads = Path.Combine(webRootPath, @"YerResimleri");
-                var extension = Path.GetExtension(files[0].FileName);
-
-                using (var fileStream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
-                {
-                    files[0].CopyTo(fileStream);
-                }
-                tatilYerleri.Fotograf= @"\YerResimleri\" + fileName + extension;
-
-                //********
                 _context.Add(tatilYerleri);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", tatilYerleri.KategoriId);
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", tatilYerleri.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", tatilYerleri.UlkeId);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id", tatilYerleri.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", tatilYerleri.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", tatilYerleri.UlkeId);
             return View(tatilYerleri);
         }
 
@@ -108,9 +88,9 @@ namespace BlogSosyalMedya.Controllers
             {
                 return NotFound();
             }
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", tatilYerleri.KategoriId);
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", tatilYerleri.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", tatilYerleri.UlkeId);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id", tatilYerleri.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", tatilYerleri.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", tatilYerleri.UlkeId);
             return View(tatilYerleri);
         }
 
@@ -119,7 +99,7 @@ namespace BlogSosyalMedya.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,YerAdı,SehirId,UlkeId,KategoriId,Puani")] TatilYerleri tatilYerleri)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,YerAdı,SehirId,UlkeId,KategoriId,Puani,Fotograf,GidilmeDurumu")] TatilYerleri tatilYerleri)
         {
             if (id != tatilYerleri.Id)
             {
@@ -146,9 +126,9 @@ namespace BlogSosyalMedya.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", tatilYerleri.KategoriId);
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", tatilYerleri.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", tatilYerleri.UlkeId);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id", tatilYerleri.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", tatilYerleri.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", tatilYerleri.UlkeId);
             return View(tatilYerleri);
         }
 

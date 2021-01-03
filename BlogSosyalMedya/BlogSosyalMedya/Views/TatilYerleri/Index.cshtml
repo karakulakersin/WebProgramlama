@@ -29,7 +29,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Fotograf)
-                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GidilmeDurumu)
             </th>
             <th></th>
         </tr>
@@ -41,20 +43,22 @@
                 @Html.DisplayFor(modelItem => item.YerAdı)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Sehir.SehirAdi)
+                @Html.DisplayFor(modelItem => item.Sehir.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Ulke.UlkeAd)
+                @Html.DisplayFor(modelItem => item.Ulke.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Kategori.KategoriAdı)
+                @Html.DisplayFor(modelItem => item.Kategori.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Puani)
             </td>
             <td>
-                @*@Html.DisplayFor(modelItem => item.Fotograf)*@
-                <img src="@Url.Content(item.Fotograf)" class="d-block w-75" asp-append-version="true" />
+                @Html.DisplayFor(modelItem => item.Fotograf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GidilmeDurumu)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

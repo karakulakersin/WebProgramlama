@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BlogSosyalMedya.Models.TatilYerleri>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@model IEnumerable<BlogSosyalMedya.Models.TatilYerleri>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -12,7 +13,8 @@
         <div class="col-md-8">
 
             <h1 class="my-4">
-                Page Heading
+                @localizer["Page Heading"]
+                @ViewData["Page Heading"]
                 <small>Secondary Text</small>
             </h1>
 

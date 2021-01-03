@@ -1,6 +1,8 @@
 ﻿using BlogSosyalMedya.Data;
 using BlogSosyalMedya.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,18 +13,24 @@ using System.Threading.Tasks;
 
 namespace FilmDunyasi1.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
-    {
+    {  
+        private readonly IHtmlLocalizer<HomeController> _localizer;
+    
         private readonly ApplicationDbContext _context;
 
-        public HomeController(ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context, IHtmlLocalizer<HomeController> localizer)
         {
             _context = context;
+            _localizer = localizer;
+
         }
 
         public IActionResult Index()
         {
-
+            var test = _localizer["Page Heading"];
+            ViewData["Page Heading"] = test;
             var db = _context.TatilYerleri
                 .Include(f => f.Sehir)
                 .Include(f => f.Ulke);
