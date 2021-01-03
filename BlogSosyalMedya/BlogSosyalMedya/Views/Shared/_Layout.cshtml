@@ -12,51 +12,45 @@
 </head>
 <body>
     <header>
-        @*<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-                <div class="container">
-                    <a class="navbar-brand" href="#">Start Bootstrap</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <partial name= *_LoginPartial" />
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">
-                                    Home
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
-                            </li>
-                        </ul>
+        @*<nav class="n<a class="n<span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <partial name= *_LoginPartial" />
+                <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">
+                                        Home
+                                        <span class="sr-only">(current)</span>
+                                    </a>
+
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>*@
+                </nav>*@
         <!-- Navigation -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="index.html">Gezilecek Yerler</a>
+                <a class="navbar-brand" href="index.html">@localizer["Gidilecek Yerler"]</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+               
                 <div class="collapse navbar-collapse" id="navbarResponsive">
 
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-link">
                             <partial name="_Culture" />
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link" href="about.html">Ana Sayfa</a>
-                        </li>
-                        <li class="nav-item">
+                        </li>*@
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller=@localizer["Gidilecek Yerler"] asp-action="Index">GidilecekYerler</a>
                         </li>
                         <li class="nav-item">
@@ -77,9 +71,8 @@
                                 <a class="dropdown-item" asp-area="" asp-controller="TurGorevlisi" asp-action="Index">Tur Görevlisi</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="TatilYerleri" asp-action="Index">Tatil Yerleri</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="GidilecekYerler" asp-action="Index">Gidilecek Yerler</a>
-
-
-                            </div>
+                            </div>*@
+                            <partial name="_LoginPartial" />
                         </li>
                         </li>
                     </ul>

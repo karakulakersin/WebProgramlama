@@ -45,6 +45,10 @@ namespace FilmDunyasi1.Controllers
         {
             return View();
         }
+        public IActionResult GidilecekYYerler()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult CultureManagement(string culture, string returnUrl)
         {
