@@ -26,6 +26,9 @@ namespace BlogSosyalMedya.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Fotograf")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("KategoriId")
                         .HasColumnType("int");
 
@@ -142,6 +145,9 @@ namespace BlogSosyalMedya.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("KategoriId")
+                        .HasColumnType("int");
+
                     b.Property<string>("OtelAdi")
                         .HasColumnType("nvarchar(max)");
 
@@ -156,11 +162,46 @@ namespace BlogSosyalMedya.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("KategoriId");
+
                     b.HasIndex("SehirId");
 
                     b.HasIndex("UlkeId");
 
                     b.ToTable("Otel");
+                });
+
+            modelBuilder.Entity("BlogSosyalMedya.Models.Otell", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("KategoriId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OtelAdi")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OtelYildizi")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SehirId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UlkeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("KategoriId");
+
+                    b.HasIndex("SehirId");
+
+                    b.HasIndex("UlkeId");
+
+                    b.ToTable("Otell");
                 });
 
             modelBuilder.Entity("BlogSosyalMedya.Models.Sehir", b =>
@@ -210,6 +251,9 @@ namespace BlogSosyalMedya.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("GidilmeDurumu")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GidilmeeDurumu")
                         .HasColumnType("int");
 
                     b.Property<int>("KategoriId")
@@ -435,6 +479,33 @@ namespace BlogSosyalMedya.Data.Migrations
 
             modelBuilder.Entity("BlogSosyalMedya.Models.Otel", b =>
                 {
+                    b.HasOne("BlogSosyalMedya.Models.Kategori", "Kategori")
+                        .WithMany()
+                        .HasForeignKey("KategoriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BlogSosyalMedya.Models.Sehir", "Sehir")
+                        .WithMany()
+                        .HasForeignKey("SehirId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BlogSosyalMedya.Models.Ulke", "Ulke")
+                        .WithMany()
+                        .HasForeignKey("UlkeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("BlogSosyalMedya.Models.Otell", b =>
+                {
+                    b.HasOne("BlogSosyalMedya.Models.Kategori", "Kategori")
+                        .WithMany()
+                        .HasForeignKey("KategoriId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("BlogSosyalMedya.Models.Sehir", "Sehir")
                         .WithMany()
                         .HasForeignKey("SehirId")

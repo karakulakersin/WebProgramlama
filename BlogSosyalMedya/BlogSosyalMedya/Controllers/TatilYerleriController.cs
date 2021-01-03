@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BlogSosyalMedya.Data;
 using BlogSosyalMedya.Models;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+
 
 namespace BlogSosyalMedya.Controllers
 {
@@ -14,9 +17,12 @@ namespace BlogSosyalMedya.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public TatilYerleriController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _hostingEnvironment;
+
+        public TatilYerleriController(ApplicationDbContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         // GET: TatilYerleri
@@ -50,9 +56,9 @@ namespace BlogSosyalMedya.Controllers
         // GET: TatilYerleri/Create
         public IActionResult Create()
         {
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id");
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id");
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id");
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı");
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi");
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd");
             return View();
         }
 
@@ -65,13 +71,29 @@ namespace BlogSosyalMedya.Controllers
         {
             if (ModelState.IsValid)
             {
+                //******
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                var files = HttpContext.Request.Form.Files;
+
+
+                string fileName = Guid.NewGuid().ToString();
+                var uploads = Path.Combine(webRootPath, @"YerResimleri");
+                var extension = Path.GetExtension(files[0].FileName);
+
+                using (var fileStream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                {
+                    files[0].CopyTo(fileStream);
+                }
+            //   TatilYerleri.Fotograf = @"\YerResimleri\" + fileName + extension;
+
+                //********
                 _context.Add(tatilYerleri);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id", tatilYerleri.KategoriId);
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", tatilYerleri.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", tatilYerleri.UlkeId);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", tatilYerleri.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", tatilYerleri.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", tatilYerleri.UlkeId);
             return View(tatilYerleri);
         }
 
@@ -88,9 +110,9 @@ namespace BlogSosyalMedya.Controllers
             {
                 return NotFound();
             }
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id", tatilYerleri.KategoriId);
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", tatilYerleri.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", tatilYerleri.UlkeId);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", tatilYerleri.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", tatilYerleri.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", tatilYerleri.UlkeId);
             return View(tatilYerleri);
         }
 
@@ -126,9 +148,9 @@ namespace BlogSosyalMedya.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id", tatilYerleri.KategoriId);
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", tatilYerleri.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", tatilYerleri.UlkeId);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", tatilYerleri.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", tatilYerleri.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", tatilYerleri.UlkeId);
             return View(tatilYerleri);
         }
 

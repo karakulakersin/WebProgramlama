@@ -1,0 +1,47 @@
+﻿@model BlogSosyalMedya.Models.Otell
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Otell</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OtelAdi" class="control-label"></label>
+                <input asp-for="OtelAdi" class="form-control" />
+                <span asp-validation-for="OtelAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OtelYildizi" class="control-label"></label>
+                <input asp-for="OtelYildizi" class="form-control" />
+                <span asp-validation-for="OtelYildizi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SehirId" class="control-label"></label>
+                <select asp-for="SehirId" class ="form-control" asp-items="ViewBag.SehirId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="UlkeId" class="control-label"></label>
+                <select asp-for="UlkeId" class ="form-control" asp-items="ViewBag.UlkeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="KategoriId" class="control-label"></label>
+                <select asp-for="KategoriId" class ="form-control" asp-items="ViewBag.KategoriId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

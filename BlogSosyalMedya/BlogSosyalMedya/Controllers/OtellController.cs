@@ -10,23 +10,23 @@ using BlogSosyalMedya.Models;
 
 namespace BlogSosyalMedya.Controllers
 {
-    public class OtelController : Controller
+    public class OtellController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public OtelController(ApplicationDbContext context)
+        public OtellController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Otel
+        // GET: Otell
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Otel.Include(o => o.Sehir).Include(o => o.Ulke);
+            var applicationDbContext = _context.Otell.Include(o => o.Kategori).Include(o => o.Sehir).Include(o => o.Ulke);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Otel/Details/5
+        // GET: Otell/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,45 +34,48 @@ namespace BlogSosyalMedya.Controllers
                 return NotFound();
             }
 
-            var otel = await _context.Otel
+            var otell = await _context.Otell
+                .Include(o => o.Kategori)
                 .Include(o => o.Sehir)
                 .Include(o => o.Ulke)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (otel == null)
+            if (otell == null)
             {
                 return NotFound();
             }
 
-            return View(otel);
+            return View(otell);
         }
 
-        // GET: Otel/Create
+        // GET: Otell/Create
         public IActionResult Create()
         {
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id");
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id");
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı");
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi");
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd");
             return View();
         }
 
-        // POST: Otel/Create
+        // POST: Otell/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,OtelYildizi,OtelAdi,SehirId,UlkeId")] Otel otel)
+        public async Task<IActionResult> Create([Bind("Id,OtelAdi,OtelYildizi,SehirId,UlkeId,KategoriId")] Otell otell)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(otel);
+                _context.Add(otell);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", otel.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", otel.UlkeId);
-            return View(otel);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", otell.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", otell.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", otell.UlkeId);
+            return View(otell);
         }
 
-        // GET: Otel/Edit/5
+        // GET: Otell/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,24 +83,25 @@ namespace BlogSosyalMedya.Controllers
                 return NotFound();
             }
 
-            var otel = await _context.Otel.FindAsync(id);
-            if (otel == null)
+            var otell = await _context.Otell.FindAsync(id);
+            if (otell == null)
             {
                 return NotFound();
             }
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", otel.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", otel.UlkeId);
-            return View(otel);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", otell.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", otell.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", otell.UlkeId);
+            return View(otell);
         }
 
-        // POST: Otel/Edit/5
+        // POST: Otell/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,OtelYildizi,OtelAdi,SehirId,UlkeId")] Otel otel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,OtelAdi,OtelYildizi,SehirId,UlkeId,KategoriId")] Otell otell)
         {
-            if (id != otel.Id)
+            if (id != otell.Id)
             {
                 return NotFound();
             }
@@ -106,12 +110,12 @@ namespace BlogSosyalMedya.Controllers
             {
                 try
                 {
-                    _context.Update(otel);
+                    _context.Update(otell);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OtelExists(otel.Id))
+                    if (!OtellExists(otell.Id))
                     {
                         return NotFound();
                     }
@@ -122,12 +126,13 @@ namespace BlogSosyalMedya.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", otel.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", otel.UlkeId);
-            return View(otel);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", otell.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", otell.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", otell.UlkeId);
+            return View(otell);
         }
 
-        // GET: Otel/Delete/5
+        // GET: Otell/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,32 +140,33 @@ namespace BlogSosyalMedya.Controllers
                 return NotFound();
             }
 
-            var otel = await _context.Otel
+            var otell = await _context.Otell
+                .Include(o => o.Kategori)
                 .Include(o => o.Sehir)
                 .Include(o => o.Ulke)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (otel == null)
+            if (otell == null)
             {
                 return NotFound();
             }
 
-            return View(otel);
+            return View(otell);
         }
 
-        // POST: Otel/Delete/5
+        // POST: Otell/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var otel = await _context.Otel.FindAsync(id);
-            _context.Otel.Remove(otel);
+            var otell = await _context.Otell.FindAsync(id);
+            _context.Otell.Remove(otell);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OtelExists(int id)
+        private bool OtellExists(int id)
         {
-            return _context.Otel.Any(e => e.Id == id);
+            return _context.Otell.Any(e => e.Id == id);
         }
     }
 }

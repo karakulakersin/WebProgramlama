@@ -18,9 +18,16 @@ namespace BlogSosyalMedya.Models
         public int Puani { get; set; }
         public String Fotograf { get; set; }
         public GidilmeDurumu GidilmeDurumu { get; set; }
+       // public GidilmeeDurumu GidilmeeDurumu { get; set; }
+
 
     }
     public enum GidilmeDurumu
+    {
+        Gidildi = 1,
+        Gidilmedi = 2
+    }
+    public enum GidilmeeDurumu
     {
         Gidildi = 1,
         Gidilmedi = 2

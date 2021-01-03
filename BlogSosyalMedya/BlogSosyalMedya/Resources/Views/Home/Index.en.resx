@@ -120,10 +120,19 @@
   <data name="Gidilecek Yerler" xml:space="preserve">
     <value>Places to visit</value>
   </data>
+  <data name="Index" xml:space="preserve">
+    <value>IndexIndex</value>
+  </data>
+  <data name="Kurtarıcı İsa Heykeli" xml:space="preserve">
+    <value>Christ the Redeemer</value>
+  </data>
   <data name="Page Heading" xml:space="preserve">
-    <value>Page Headingg </value>
+    <value>Page Heading</value>
   </data>
   <data name="Secondary Text" xml:space="preserve">
     <value>İkincil Metin</value>
+  </data>
+  <data name="Tapınak" xml:space="preserve">
+    <value>Termessos Ancient City</value>
   </data>
 </root>

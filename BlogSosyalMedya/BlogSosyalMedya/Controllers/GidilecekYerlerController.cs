@@ -19,14 +19,14 @@ namespace BlogSosyalMedya.Controllers
             _context = context;
         }
 
-        // GET: GidilecekYerler
+        // GET: GidilecekYerlers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.GidilecekYerler.Include(g => g.Kategori).Include(g => g.Sehir).Include(g => g.Ulke);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: GidilecekYerler/Details/5
+        // GET: GidilecekYerlers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,21 +47,21 @@ namespace BlogSosyalMedya.Controllers
             return View(gidilecekYerler);
         }
 
-        // GET: GidilecekYerler/Create
+        // GET: GidilecekYerlers/Create
         public IActionResult Create()
         {
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id");
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id");
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id");
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı");
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi");
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd");
             return View();
         }
 
-        // POST: GidilecekYerler/Create
+        // POST: GidilecekYerlers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,YerAdi,SehirId,UlkeId,KategoriId")] GidilecekYerler gidilecekYerler)
+        public async Task<IActionResult> Create([Bind("Id,YerAdi,SehirId,UlkeId,KategoriId,Fotograf")] GidilecekYerler gidilecekYerler)
         {
             if (ModelState.IsValid)
             {
@@ -69,13 +69,13 @@ namespace BlogSosyalMedya.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id", gidilecekYerler.KategoriId);
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", gidilecekYerler.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", gidilecekYerler.UlkeId);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", gidilecekYerler.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", gidilecekYerler.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", gidilecekYerler.UlkeId);
             return View(gidilecekYerler);
         }
 
-        // GET: GidilecekYerler/Edit/5
+        // GET: GidilecekYerlers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -88,18 +88,18 @@ namespace BlogSosyalMedya.Controllers
             {
                 return NotFound();
             }
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id", gidilecekYerler.KategoriId);
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", gidilecekYerler.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", gidilecekYerler.UlkeId);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", gidilecekYerler.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", gidilecekYerler.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", gidilecekYerler.UlkeId);
             return View(gidilecekYerler);
         }
 
-        // POST: GidilecekYerler/Edit/5
+        // POST: GidilecekYerlers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,YerAdi,SehirId,UlkeId,KategoriId")] GidilecekYerler gidilecekYerler)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,YerAdi,SehirId,UlkeId,KategoriId,Fotograf")] GidilecekYerler gidilecekYerler)
         {
             if (id != gidilecekYerler.Id)
             {
@@ -126,13 +126,13 @@ namespace BlogSosyalMedya.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "Id", gidilecekYerler.KategoriId);
-            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "Id", gidilecekYerler.SehirId);
-            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "Id", gidilecekYerler.UlkeId);
+            ViewData["KategoriId"] = new SelectList(_context.Kategori, "Id", "KategoriAdı", gidilecekYerler.KategoriId);
+            ViewData["SehirId"] = new SelectList(_context.Sehir, "Id", "SehirAdi", gidilecekYerler.SehirId);
+            ViewData["UlkeId"] = new SelectList(_context.Ulke, "Id", "UlkeAd", gidilecekYerler.UlkeId);
             return View(gidilecekYerler);
         }
 
-        // GET: GidilecekYerler/Delete/5
+        // GET: GidilecekYerlers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -153,7 +153,7 @@ namespace BlogSosyalMedya.Controllers
             return View(gidilecekYerler);
         }
 
-        // POST: GidilecekYerler/Delete/5
+        // POST: GidilecekYerlers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

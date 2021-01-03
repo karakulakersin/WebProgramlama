@@ -9193,11 +9193,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ersin\\OneDrive\\Belgeler\\GitHub\\WebProgramlama\\BlogSosyalMedya\\BlogSosyalMedya\\BlogSosyalMedya.csproj",
+      "projectUniqueName": "C:\\Users\\ersin\\OneDrive\\Belgeler\\GitHub\\WebProgramlama\\BlogSosyalMedya\\BlogSosyalMedya.csproj",
       "projectName": "BlogSosyalMedya",
-      "projectPath": "C:\\Users\\ersin\\OneDrive\\Belgeler\\GitHub\\WebProgramlama\\BlogSosyalMedya\\BlogSosyalMedya\\BlogSosyalMedya.csproj",
+      "projectPath": "C:\\Users\\ersin\\OneDrive\\Belgeler\\GitHub\\WebProgramlama\\BlogSosyalMedya\\BlogSosyalMedya.csproj",
       "packagesPath": "C:\\Users\\ersin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ersin\\OneDrive\\Belgeler\\GitHub\\WebProgramlama\\BlogSosyalMedya\\BlogSosyalMedya\\obj\\",
+      "outputPath": "C:\\Users\\ersin\\OneDrive\\Belgeler\\GitHub\\WebProgramlama\\BlogSosyalMedya\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ersin\\AppData\\Roaming\\NuGet\\NuGet.Config",

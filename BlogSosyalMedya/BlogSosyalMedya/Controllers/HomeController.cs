@@ -40,13 +40,19 @@ namespace FilmDunyasi1.Controllers
 
             return View(db.ToList());
         }
+        [AllowAnonymous]
 
         public IActionResult Privacy()
         {
+            var test = _localizer["Page Heading"];
+            ViewData["Page Heading"] = test;
             return View();
         }
         public IActionResult GidilecekYYerler()
+
         {
+            var test = _localizer["Page Heading"];
+            ViewData["Page Heading"] = test;
             return View();
         }
         [HttpPost]

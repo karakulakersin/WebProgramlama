@@ -120,10 +120,19 @@
   <data name="Gidilecek Yerler" xml:space="preserve">
     <value>Gidilecek Yerler</value>
   </data>
+  <data name="Index" xml:space="preserve">
+    <value>INNND</value>
+  </data>
+  <data name="Kurtarıcı İsa Heykeli" xml:space="preserve">
+    <value>Kurtarıcı İsa</value>
+  </data>
   <data name="Page Heading" xml:space="preserve">
     <value>Ana sayfa </value>
   </data>
   <data name="Secondary Text" xml:space="preserve">
     <value>İkincil metin</value>
+  </data>
+  <data name="Tapınak" xml:space="preserve">
+    <value>Termessos Antik Kenti</value>
   </data>
 </root>

@@ -15,5 +15,6 @@ namespace BlogSosyalMedya.Models
         public Ulke Ulke { get; set; }
         public int KategoriId { get; set; }
         public Kategori Kategori { get; set; }
+        public String Fotograf { get; set; }
     }
 }

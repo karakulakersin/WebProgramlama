@@ -21,6 +21,7 @@ namespace BlogSosyalMedya.Data
         public DbSet<Otel> Otel { get; set; }
         public DbSet<Kategori> Kategori { get; set; }
         public DbSet<BlogSosyalMedya.Models.GidilecekYerler> GidilecekYerler { get; set; }
+        public DbSet<BlogSosyalMedya.Models.Otell> Otell { get; set; }
 
     }
 }

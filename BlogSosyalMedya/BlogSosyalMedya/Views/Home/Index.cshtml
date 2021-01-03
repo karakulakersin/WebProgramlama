@@ -2,6 +2,7 @@
 @model IEnumerable<BlogSosyalMedya.Models.TatilYerleri>
 
 @{
+  
     ViewData["Title"] = "Home Page";
 }
 
@@ -9,6 +10,7 @@
 <div class="container">
 
     <div class="row">
+       
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
@@ -16,60 +18,42 @@
             <h1 class="my-4">
                 @localizer["Page Heading"]
                 
-                <small>@ViewData["Page Heading"]</small>
+               
             </h1>
 
             <!-- Blog Post -->
             <div class="card mb-4">
-                <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                <img class="card-img-top" src="~/YerResimleri/4a2536cd-cbb5-43dc-ab50-0ebe75cbb8c1.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h2 class="card-title">Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                    <h2 class="card-title">@localizer["Kurtarıcı İsa Heykeli"]</h2>
+                    <p class="card-text">Kurtarıcı İsa, Brezilya'nın Rio de Janeiro şehrinde Corcovado Dağı üzerinde yer alan ve şehrin sembollerinden biri olan İsa heykelidir. Dağın aşağı kısmında Tijuca Milli Parkı'nda bulunur. </p>
                 </div>
                 <div class="card-footer text-muted">
-                    Posted on January 1, 2020 by
-                    <a href="#">Start Bootstrap</a>
+                   
                 </div>
             </div>
 
             <!-- Blog Post -->
             <div class="card mb-4">
-                <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+                <img class="card-img-top" src="~/YerResimleri/7be3087f-e90c-4752-ac45-185f32fde3a6.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h2 class="card-title">Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                    <h2 class="card-title">@localizer["Tapınak"]</h2>
+                    <p class="card-text">
+                        Termessos, Pisidya bölgesinin "Milyas"olarak anılan güneybatı bölümünde konumlanmış önemli bir antik kenttir.
+
+                        Kent, Anadolu'nun en eski halklarından Luvi'lerin soyundan gelme Solym'ler tarafından kurulmuştur. Şehrin tarih sahnesine çıkışı, Büyük İskender’in M.Ö. 333’de kenti kuşatması ve Termesosluların güçlü bir savunma yaparak kenti teslim etmemesiyle olmuştur.
+
+                        İskender’in ölümünden sonra kent Ptolemyler tarafından alınmıştır. M.Ö.189 yılında komşu şehir İsinda’yı zapt eden Termessoslular, İsinda halkının şikâyeti üzerine Anadolu’daki Roma kuvvetlerinin komutanı Manlius Vulsotarafından cezalandırılmışlardır. M.Ö. 71’de, Roma ile “dostluk ve ittifak” içinde olan Termessos’un işlerinde bağımsız olduğu ve kendi kanunlarını kendileri yapacakları konusu da Roma Senatosu’nda kabul ve tasdik edilmiştir. Şehrin Bizans döneminde ve sonraki devirlerdeki durumu hakkında hiçbir bilgi bulunmamaktadır.
+                    </p>
                 </div>
                 <div class="card-footer text-muted">
-                    Posted on January 1, 2020 by
-                    <a href="#">Start Bootstrap</a>
+                    
                 </div>
             </div>
 
-            <!-- Blog Post -->
-            <div class="card mb-4">
-                <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-                <div class="card-body">
-                    <h2 class="card-title">Post Title</h2>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                </div>
-                <div class="card-footer text-muted">
-                    Posted on January 1, 2020 by
-                    <a href="#">Start Bootstrap</a>
-                </div>
-            </div>
+           
 
-            <!-- Pagination -->
-            <ul class="pagination justify-content-center mb-4">
-                <li class="page-item">
-                    <a class="page-link" href="#">&larr; Older</a>
-                </li>
-                <li class="page-item disabled">
-                    <a class="page-link" href="#">Newer &rarr;</a>
-                </li>
-            </ul>
+            
 
         </div>
 

@@ -36,33 +36,37 @@
         <!-- Navigation -->
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="index.html">@localizer["Gidilecek Yerler"]</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Gezilecek Yerler</a>
+
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-               
+
                 <div class="collapse navbar-collapse" id="navbarResponsive">
 
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-link">
-                            <partial name="_Culture" />
+                        <partial name="_LoginPartial" />
+
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                         </li>
-                        @*<li class="nav-item">
-                            <a class="nav-link" href="about.html">Ana Sayfa</a>
-                        </li>*@
-                        @*<li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller=@localizer["Gidilecek Yerler"] asp-action="Index">GidilecekYerler</a>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GidilecekYYerler">GidilecekYerler</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">İletişim</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">İletişim</a>
+
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Admin
                             </a>
+                            
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
                                 <a class="dropdown-item" asp-area="" asp-controller="Kategori" asp-action="Index">Kategoriler</a>
-                                <a class="dropdown-item" asp-area="" asp-controller="Otel" asp-action="Index">Oteller</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Otell" asp-action="Index">Oteller</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" asp-area="" asp-controller="Sehir" asp-action="Index">Şehirler</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="Ulke" asp-action="Index">Ülkeler</a>
@@ -71,8 +75,10 @@
                                 <a class="dropdown-item" asp-area="" asp-controller="TurGorevlisi" asp-action="Index">Tur Görevlisi</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="TatilYerleri" asp-action="Index">Tatil Yerleri</a>
                                 <a class="dropdown-item" asp-area="" asp-controller="GidilecekYerler" asp-action="Index">Gidilecek Yerler</a>
-                            </div>*@
-                            <partial name="_LoginPartial" />
+                            </div>
+                        <li class="nav-link">
+                            <partial name="_Culture" />
+                        </li>
                         </li>
                         </li>
                     </ul>
