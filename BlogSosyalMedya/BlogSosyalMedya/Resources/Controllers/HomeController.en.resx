@@ -120,4 +120,7 @@
   <data name="Page Heading" xml:space="preserve">
     <value>Page Headingg C</value>
   </data>
+  <data name="Secondary Text" xml:space="preserve">
+    <value>İkincil metin</value>
+  </data>
 </root>

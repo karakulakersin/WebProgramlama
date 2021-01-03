@@ -45,9 +45,9 @@ namespace BlogSosyalMedya
                         new CultureInfo("en")
 
                     };
-                    opt.DefaultRequestCulture = new RequestCulture("en");
+                    opt.DefaultRequestCulture = new RequestCulture("tr");
                     opt.SupportedCultures = supportedCulteres;
-                    opt.SupportedCultures = supportedCulteres;
+                    opt.SupportedUICultures = supportedCulteres;
                 });
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -82,7 +82,8 @@ namespace BlogSosyalMedya
 
 
             app.UseAuthorization();
-            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);  
+
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
             //var supportedCultres = new[] { "tr", "en" };
             //var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultres[0])

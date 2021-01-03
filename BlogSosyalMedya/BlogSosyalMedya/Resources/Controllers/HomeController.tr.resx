@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Gidilecek Yerler" xml:space="preserve">
+    <value>Gidilecek Yerlerr</value>
+  </data>
   <data name="Page Heading" xml:space="preserve">
     <value>Ana sayfa C</value>
+  </data>
+  <data name="Secondary Text" xml:space="preserve">
+    <value>İkincil Metin C</value>
   </data>
 </root>

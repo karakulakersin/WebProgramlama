@@ -333,3 +333,6 @@ C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosya
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\BlogSosyalMedya.Resources.Controllers.HomeController.tr.resources
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\BlogSosyalMedya.Resources.Views.Home.Index.en.resources
 C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\BlogSosyalMedya.Resources.Views.Home.Index.tr.resources
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Culture.cshtml.g.cs
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\BlogSosyalMedya.Resources.Views.Shared._Culture.en.resources
+C:\Users\ersin\OneDrive\Belgeler\GitHub\WebProgramlama\BlogSosyalMedya\BlogSosyalMedya\obj\Debug\netcoreapp3.1\BlogSosyalMedya.Resources.Views.Shared._Culture.tr.resources
